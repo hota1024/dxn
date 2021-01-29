@@ -1,12 +1,31 @@
 type Optional<T> = T | undefined
 
-type TypeMap = {
+/**
+ * TypeMap type.
+ */
+export type TypeMap = {
   string: string
   'string?': Optional<string>
   number: number
   'number?': Optional<number>
   boolean: boolean
   'boolean?': Optional<boolean>
+}
+
+/**
+ * returns whether given string is type string.
+ *
+ * @param string string.
+ */
+export function isTypeString(string: string): string is keyof TypeMap {
+  return [
+    'string',
+    'string?',
+    'number',
+    'number?',
+    'boolean',
+    'boolean?',
+  ].includes(string)
 }
 
 type TypeKey = keyof TypeMap
