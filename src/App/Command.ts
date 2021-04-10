@@ -14,4 +14,9 @@ export type Command<S extends string> = {
    * Command handler.
    */
   handler: CommandHandler<ParseArgs<Tokenize<S>>>
+
+  /**
+   * command description.
+   */
+  description: string
 }

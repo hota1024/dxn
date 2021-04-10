@@ -95,11 +95,13 @@ export class App implements IApp {
 
   command<S extends string>(
     schema: S,
-    handler: CommandHandler<ParseArgs<Tokenize<S>>>
+    handler: CommandHandler<ParseArgs<Tokenize<S>>>,
+    description = ''
   ): void {
     this.commands.push({
       schema,
       handler,
+      description,
     })
   }
 
