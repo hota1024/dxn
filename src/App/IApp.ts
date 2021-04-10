@@ -1,4 +1,5 @@
 import { CommandHandler } from './CommandHandler'
+import { CommandPrefix } from './CommandPrefix'
 import { HandlerProps } from './HandlerProps'
 import { PatternHandler } from './PatternHandler'
 
@@ -24,4 +25,30 @@ export interface IApp {
     schema: S,
     handler: CommandHandler<HandlerProps<S>>
   ): void
+
+  /**
+   * add a prefix.
+   *
+   * @param prefix prefix to add.
+   */
+  addPrefix(prefix: CommandPrefix): void
+
+  /**
+   * remove a prefix.
+   *
+   * @param prefix prefix to remove.
+   */
+  removePrefix(prefix: CommandPrefix): void
+
+  /**
+   * remove all prefixes.
+   */
+  removeAllPrefixes(): void
+
+  /**
+   * returns whether bot has given prefix.
+   *
+   * @param prefix prefix.
+   */
+  hasPrefix(prefix: CommandPrefix): boolean
 }

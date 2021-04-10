@@ -31,7 +31,7 @@ export class App implements IApp {
   /**
    * prefixes.
    */
-  readonly prefixes: CommandPrefix[]
+  prefixes: CommandPrefix[]
 
   /**
    * App constructor.
@@ -112,5 +112,21 @@ export class App implements IApp {
    */
   async login(token: string): Promise<string> {
     return this.client.login(token)
+  }
+
+  addPrefix(prefix: CommandPrefix): void {
+    this.prefixes.push(prefix)
+  }
+
+  removePrefix(prefix: CommandPrefix): void {
+    this.prefixes = this.prefixes.filter((p) => p !== prefix)
+  }
+
+  removeAllPrefixes(): void {
+    this.prefixes = []
+  }
+
+  hasPrefix(prefix: CommandPrefix): boolean {
+    return this.prefixes.includes(prefix)
   }
 }
