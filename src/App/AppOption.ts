@@ -1,3 +1,4 @@
+import { ClientOptions } from 'discord.js'
 import { CommandPrefix } from './CommandPrefix'
 
 /**
@@ -8,6 +9,11 @@ export type AppOption = {
    * prefixes.
    */
   prefixes?: CommandPrefix[]
+
+  /**
+   * discord.js client options.
+   */
+  clientOptions?: ClientOptions
 }
 
 export const defaultAppOption: AppOption = {

@@ -37,7 +37,7 @@ export class App implements IApp {
    * App constructor.
    */
   constructor(context: AppOption = defaultAppOption) {
-    this.client = new Client()
+    this.client = new Client(context.clientOptions)
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.prefixes = context.prefixes ?? defaultAppOption.prefixes!
 
