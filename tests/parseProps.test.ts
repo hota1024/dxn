@@ -16,6 +16,17 @@ describe('parseProps test', () => {
     })
   })
 
+  test('text contains numbers parse', () => {
+    const props = parseProps('hello {name: string}', 'hello hota1024')
+
+    expect(props).toMatchObject({
+      args: {
+        name: 'hota1024',
+      },
+      argv: ['hota1024'],
+    })
+  })
+
   test('single schema', () => {
     const parsed = parseSchema('ping')
     const first = parsed[0]

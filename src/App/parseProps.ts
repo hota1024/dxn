@@ -193,7 +193,7 @@ export const parseInput = (input: string): InputToken[] => {
         ++i
       } while (input[i] !== ' ' && i < input.length)
 
-      if (body.match(/[0-9]+(\.[0-9]+)?/)) {
+      if (body.match(/^[0-9]+(\.[0-9]+)?/)) {
         tokens.push({
           kind: 'number',
           value: parseFloat(body),
